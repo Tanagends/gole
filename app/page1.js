@@ -2,13 +2,13 @@
 
 import { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import {
-  Cloud,
-  Server,
-  Shield,
-  Zap,
-  Globe,
-  Lock,
+import { 
+  Cloud, 
+  Server, 
+  Shield, 
+  Zap, 
+  Globe, 
+  Lock, 
   ChevronRight,
   BarChart3,
   Users,
@@ -31,7 +31,7 @@ export default function Page() {
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
 
   useEffect(() => {
-    setTimeout(() => setIsLoading(false), 2000);
+    setTimeout(() => setIsLoading(false), 1000);
   }, []);
 
   const services = [
@@ -63,35 +63,10 @@ export default function Page() {
 
   const stats = [
     { value: "99.99%", label: "Uptime SLA", icon: <Activity /> },
-    { value: "50+", label: "Global Data Centers", icon: <Globe /> },
+    { value: "150+", label: "Global Data Centers", icon: <Globe /> },
     { value: "2M+", label: "Active Users", icon: <Users /> },
     { value: "50ms", label: "Avg Response Time", icon: <Zap /> }
   ];
-
-  // Variants for staggered headline animation
-  const headlineContainerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const headlineWordVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: 'spring',
-        damping: 12,
-        stiffness: 100,
-      },
-    },
-  };
 
   // Loading Screen
   if (isLoading) {
@@ -103,11 +78,11 @@ export default function Page() {
           className="text-center"
         >
           <motion.div
-            animate={{
+            animate={{ 
               rotate: 360,
               scale: [1, 1.2, 1]
             }}
-            transition={{
+            transition={{ 
               duration: 2,
               repeat: Infinity,
               ease: "easeInOut"
@@ -116,12 +91,12 @@ export default function Page() {
           >
             <Cloud className="w-24 h-24 text-white mx-auto" />
           </motion.div>
-          <motion.h1
+          <motion.h1 
             className="text-4xl font-bold text-white mb-4"
             animate={{ opacity: [0.5, 1, 0.5] }}
             transition={{ duration: 2, repeat: Infinity }}
           >
-            GOLE CLOUD PROTOTYPE!
+            GOLE CLOUD
           </motion.h1>
           <div className="flex gap-2 justify-center">
             {[0, 1, 2].map((i) => (
@@ -129,7 +104,7 @@ export default function Page() {
                 key={i}
                 className="w-3 h-3 bg-blue-400 rounded-full"
                 animate={{ y: [0, -20, 0] }}
-                transition={{
+                transition={{ 
                   duration: 0.6,
                   delay: i * 0.1,
                   repeat: Infinity
@@ -147,20 +122,20 @@ export default function Page() {
       {/* Animated Background Elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <motion.div
-          animate={{
+          animate={{ 
             x: [0, 100, 0],
             y: [0, -100, 0]
           }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 20, repeat: Infinity }}
           className="absolute top-20 left-10 w-72 h-72 bg-blue-200/20 rounded-full blur-3xl"
         />
         <motion.div
-          animate={{
+          animate={{ 
             x: [0, -100, 0],
             y: [0, 100, 0]
           }}
-          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-20 right-10 w-96 h-96 bg-purple-300/20 rounded-full blur-3xl"
+          transition={{ duration: 25, repeat: Infinity }}
+          className="absolute bottom-20 right-10 w-96 h-96 bg-blue-300/20 rounded-full blur-3xl"
         />
       </div>
 
@@ -171,18 +146,15 @@ export default function Page() {
         className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-lg border-b border-blue-100"
       >
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          {/* --- NAVBAR REVAMPED --- */}
           <motion.div 
-            className="flex items-center gap-3 cursor-pointer"
+            className="flex items-center gap-3"
             whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
           >
             <Cloud className="w-10 h-10 text-blue-600" />
-            <span className="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-slate-800 to-blue-700 bg-clip-text text-transparent">
-              GoleCloud
+            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+              GOLE CLOUD
             </span>
           </motion.div>
-          {/* --- END NAVBAR REVAMP --- */}
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -199,76 +171,42 @@ export default function Page() {
         className="min-h-screen flex items-center justify-center px-6 pt-20"
       >
         <div className="container mx-auto">
-          {/* --- HERO REVAMPED --- */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            {/* New dynamic centerpiece */}
-            <motion.div 
-              className="relative w-48 h-48 md:w-60 md:h-60 mb-12 mx-auto flex items-center justify-center"
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.2, type: 'spring', stiffness: 100 }}
+            <motion.div
+              animate={{ rotate: [0, 360] }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              className="inline-block mb-6"
             >
-              <motion.div
-                className="absolute inset-0 bg-blue-400 rounded-full blur-3xl"
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-              />
-              <motion.div
-                className="absolute"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
-              >
-                <Globe className="w-48 h-48 md:w-60 md:h-60 text-blue-200 opacity-70" />
-              </motion.div>
-              <motion.div>
-                <div className="w-24 h-24 bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-md rounded-3xl flex items-center justify-center shadow-2xl">
-                    <Cloud className="w-14 h-14 text-blue-600" />
+              <div className="relative">
+                <Sparkles className="absolute -top-2 -right-2 w-6 h-6 text-yellow-400 animate-pulse" />
+                <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-blue-700 rounded-3xl flex items-center justify-center shadow-2xl">
+                  <Cloud className="w-14 h-14 text-white" />
                 </div>
-              </motion.div>
-              {[
-                  { icon: <Cpu className="w-6 h-6"/>, pos: "top-0 left-10" },
-                  { icon: <Shield className="w-6 h-6"/>, pos: "top-24 -right-4" },
-                  { icon: <Database className="w-6 h-6"/>, pos: "bottom-4 -left-4" },
-                  { icon: <Zap className="w-6 h-6"/>, pos: "bottom-16 right-0" },
-              ].map((item, index) => (
-                  <motion.div
-                      key={index}
-                      className={`absolute p-2 bg-white/80 backdrop-blur-sm rounded-full shadow-lg text-blue-600 ${item.pos}`}
-                      animate={{ y: [0, -15, 0] }}
-                      transition={{ duration: 3 + index, repeat: Infinity, ease: 'easeInOut' }}
-                  >
-                      {item.icon}
-                  </motion.div>
-              ))}
+              </div>
             </motion.div>
 
-            {/* New animated headline */}
             <motion.h1 
-              className="text-5xl md:text-7xl font-extrabold mb-6 text-slate-800"
-              variants={headlineContainerVariants}
-              initial="hidden"
-              animate="visible"
+              className="text-6xl md:text-7xl font-bold mb-6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
             >
-              {"Cloud Excellence".split(" ").map((word, index) => (
-                <motion.span key={index} variants={headlineWordVariants} className="inline-block mr-4">
-                  {word}
-                </motion.span>
-              ))}
+              <span className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 bg-clip-text text-transparent">
+                Cloud Excellence
+              </span>
               <br />
-              <motion.span variants={headlineWordVariants} className="bg-gradient-to-r from-blue-600 via-purple-500 to-blue-700 bg-clip-text text-transparent">
-                Redefined.
-              </motion.span>
+              <span className="text-slate-800">Redefined</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.8 }}
+              transition={{ delay: 0.4 }}
               className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto"
             >
               Transform your infrastructure with enterprise-grade cloud solutions. 
@@ -278,7 +216,7 @@ export default function Page() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 1.0 }}
+              transition={{ delay: 0.6 }}
               className="flex gap-4 justify-center flex-wrap"
             >
               <motion.button
@@ -297,8 +235,32 @@ export default function Page() {
                 View Demo
               </motion.button>
             </motion.div>
+
+            {/* Animated Tech Stack */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8 }}
+              className="mt-16 flex justify-center gap-8 flex-wrap"
+            >
+              {[Cpu, Database, Server, Layers].map((Icon, index) => (
+                <motion.div
+                  key={index}
+                  animate={{ 
+                    y: [0, -10, 0],
+                  }}
+                  transition={{ 
+                    duration: 2,
+                    delay: index * 0.2,
+                    repeat: Infinity
+                  }}
+                  className="w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center"
+                >
+                  <Icon className="w-8 h-8 text-blue-600" />
+                </motion.div>
+              ))}
+            </motion.div>
           </motion.div>
-          {/* --- END HERO REVAMP --- */}
         </div>
       </motion.section>
 
@@ -315,11 +277,9 @@ export default function Page() {
                 viewport={{ once: true }}
                 className="text-center"
               >
-                {/* --- ACTIVE STATE ADDED --- */}
                 <motion.div
-                  whileHover={{ scale: 1.1, rotate: 15 }}
-                  whileTap={{ scale: 1.05, rotate: 15 }}
-                  transition={{ type: "spring", stiffness: 300 }}
+                  whileHover={{ scale: 1.1, rotate: 360 }}
+                  transition={{ duration: 0.5 }}
                   className="w-16 h-16 bg-white/20 backdrop-blur rounded-2xl flex items-center justify-center mx-auto mb-4"
                 >
                   <div className="text-white">{stat.icon}</div>
@@ -369,8 +329,6 @@ export default function Page() {
                   y: -10,
                   boxShadow: "0 20px 40px rgba(59, 130, 246, 0.2)"
                 }}
-                /* --- ACTIVE STATE ADDED --- */
-                whileTap={{ scale: 0.98, y: -5 }}
                 onClick={() => setActiveService(index)}
                 className={`p-8 rounded-3xl cursor-pointer transition-all ${
                   activeService === index 
@@ -379,9 +337,7 @@ export default function Page() {
                 }`}
               >
                 <motion.div
-                  /* --- ACTIVE STATE ADDED --- */
                   whileHover={{ rotate: 360 }}
-                  whileTap={{ rotate: 360 }}
                   transition={{ duration: 0.5 }}
                   className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 ${
                     activeService === index 
@@ -393,7 +349,7 @@ export default function Page() {
                     {service.icon}
                   </div>
                 </motion.div>
-                <h3 className="text-2xl font-bold text-black mb-3">{service.title}</h3>
+                <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
                 <p className={`mb-6 ${activeService === index ? 'text-blue-100' : 'text-slate-600'}`}>
                   {service.description}
                 </p>
@@ -448,7 +404,7 @@ export default function Page() {
                     </span>
                   </h2>
                   <p className="text-xl text-slate-600 mb-8">
-                    Trusted by leading companies in South Africa and worldwide for mission-critical operations.
+                    Trusted by Fortune 500 companies worldwide for mission-critical operations.
                   </p>
                 </motion.div>
 
@@ -464,10 +420,8 @@ export default function Page() {
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.1 }}
                       viewport={{ once: true }}
-                      /* --- ACTIVE STATE ADDED --- */
-                      whileHover={{ x: 10, backgroundColor: "#FFFFFF" }}
-                      whileTap={{ scale: 0.98, x: 5 }}
-                      className="flex gap-4 p-4 rounded-2xl hover:shadow-lg transition-all cursor-pointer"
+                      whileHover={{ x: 10 }}
+                      className="flex gap-4 p-4 rounded-2xl hover:bg-white hover:shadow-lg transition-all"
                     >
                       <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center text-white flex-shrink-0">
                         {item.icon}
@@ -489,7 +443,7 @@ export default function Page() {
               >
                 <motion.div
                   animate={{ 
-                    rotate: [0, 5, -5, 0],
+                    rotate: [0, 10, -10, 0],
                   }}
                   transition={{ 
                     duration: 6,
@@ -523,12 +477,11 @@ export default function Page() {
                 <motion.div
                   animate={{ 
                     y: [0, -20, 0],
-                    rotate: [0, 180, 360]
+                    rotate: [0, 360]
                   }}
                   transition={{ 
-                    duration: 8,
-                    repeat: Infinity,
-                    ease: "easeInOut"
+                    duration: 4,
+                    repeat: Infinity
                   }}
                   className="absolute -top-8 -right-8 w-24 h-24 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-xl"
                 >
@@ -560,8 +513,7 @@ export default function Page() {
                   }}
                   transition={{ 
                     duration: 10 + i * 2,
-                    repeat: Infinity,
-                    ease: "easeInOut"
+                    repeat: Infinity
                   }}
                   className="absolute w-96 h-96 border-4 border-white rounded-full"
                   style={{
@@ -613,13 +565,12 @@ export default function Page() {
             className="flex items-center justify-center gap-3 mb-6"
           >
             <Cloud className="w-10 h-10 text-blue-400" />
-            <span className="text-2xl font-bold">GoleCloud</span>
+            <span className="text-2xl font-bold">GOLE CLOUD</span>
           </motion.div>
-          <p className="text-slate-400 mb-4">© 2025 GoleCloud Solutions. All rights reserved.</p>
+          <p className="text-slate-400 mb-4">© 2025 Gole Cloud Solutions. All rights reserved.</p>
           <p className="text-sm text-slate-500">Building the future of cloud infrastructure</p>
         </div>
       </footer>
-      
     </div>
   );
 }
