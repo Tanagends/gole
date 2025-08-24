@@ -196,7 +196,7 @@ export default function Page() {
       {/* Hero Section */}
       <motion.section 
         style={{ opacity, scale }}
-        className="min-h-screen flex items-center justify-center px-6 pt-20"
+        className="min-h-screen flex items-center justify-center mb-6 px-6 pt-20"
       >
         <div className="container mx-auto">
           {/* --- HERO REVAMPED --- */}
